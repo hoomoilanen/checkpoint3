@@ -36,13 +36,18 @@ def luku():
     import argparse
     parser = argparse.ArgumentParser()
     file = open("checkpoint.txt")
+    
     parser.add_argument('rivit', type=int, help='rivien maara')
     args = parser.parse_args()
-
+    x = []
     for index, line in enumerate(file):
+
         if index == args.rivit:
             break
-        print(line)
+        x.append(line)
+    x.sort(key=len)
+    y = ''.join(x)
+    print(y)
 
 def wait():
     while not os.path.exists('C:/Users/Henri/Documents/checkpoint3/vko3-2/checkpoint.txt'):
